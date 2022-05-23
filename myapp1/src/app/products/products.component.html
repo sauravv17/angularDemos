@@ -1,0 +1,65 @@
+<app-product></app-product>
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewProduct"
+  (click)="onProductCreate()"
+>
+  AddToCart
+</button>
+<p>{{ productCreationStatus }}</p>
+<p [innerText]="allowNewProduct"></p>
+
+<!-- <div class="row">
+  <div class="col">><label>Product Name</label></div>
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      (input)="ongetProductName($event)"
+    />
+  </div>
+  <div class="col">
+    <p>{{ ongetProductName }}</p>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" [(ngModel)]="productDescription" />
+  </div>
+  <div class="col">
+    <p>{{ productDescription }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="username"
+      placeholder="Username"
+    />
+  </div>
+  <div class="col">
+    <p>{{ username }}</p>
+  </div>
+  <div class="col">
+    <button
+      class="btn btn-primary"
+      [disabled]="username === ''"
+      (click)="username = ''"
+    >
+      Reset
+    </button>
+  </div>
+</div>
+<!-- [disabled]="!username" (click)="onUser()-->
+
+<div class="col"><label>UserName</label></div>
+<div class="col">
+  <input type="text" class="form-control" [(ngModel)]="username" />
+</div>
+<div class="col">
+  <p>{{ username }}</p>
+</div>

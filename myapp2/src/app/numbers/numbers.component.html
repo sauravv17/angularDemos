@@ -1,0 +1,34 @@
+<button class="btn btn-primary" (click)="toggleNumber()">Show</button>
+
+<!-- <button class="btn btn-primary" (click)="hide()">Hide</button> -->
+<div class="container">
+  <div class="row" *ngIf="showNumber">
+    <div class="col">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let number of numbers; let i = index"
+          [ngClass]="{ odd: number % 2 !== 0 }"
+          [ngStyle]="{
+            backgroundColor: number % 2 !== 0 ? 'orange' : 'coral'
+          }"
+        >
+          {{ i }}
+          {{ number }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p appBasicHilight>Styled with Basic Directive!!</p>
+      <br />
+      <br />
+      <p appBetterHilight>Styled with Better Directive!!</p>
+    </div>
+  </div>
+</div>

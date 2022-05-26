@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { CockpitComponent } from './products/cockpit/cockpit.component';
 import { ProductComponent } from './products/product/product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NumbersComponent } from './numbers/numbers.component';
 import { BasicHilightDirective } from './BasicHilightDirective';
 import { AccountsComponent } from './accounts/accounts.component';
@@ -21,6 +21,9 @@ import { ObservablesComponent } from './observables/observables.component';
 import { ServersComponent } from './servers/servers.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { TformsComponent } from './forms/tforms/tforms.component';
+import { FormsComponent } from './forms/forms.component';
+import { RformsComponent } from './forms/rforms/rforms.component';
 // import { BetterHilightDirective } from './BetterHilightDirective';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +34,9 @@ const appRoutes: Routes = [
   { path: 'users/:id/:name', component: UserComponent },
   { path: 'observable', component: ObservablesComponent },
   { path: 'servers', component: ServersComponent },
+  { path: 'forms', component: FormsComponent },
+  { path: 'tforms', component: TformsComponent },
+  { path: 'rforms', component: RformsComponent },
 ];
 
 @NgModule({
@@ -53,9 +59,17 @@ const appRoutes: Routes = [
     ServersComponent,
     ShortenPipe,
     FilterPipe,
+    TformsComponent,
+    FormsComponent,
+    RformsComponent,
     // BetterHilightDirective,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

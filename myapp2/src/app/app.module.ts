@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { CockpitComponent } from './products/cockpit/cockpit.component';
@@ -24,6 +24,7 @@ import { ShortenPipe } from './pipes/shorten.pipe';
 import { TformsComponent } from './forms/tforms/tforms.component';
 import { FormsComponent } from './forms/forms.component';
 import { RformsComponent } from './forms/rforms/rforms.component';
+import { BlogComponent } from './blog/blog.component';
 // import { BetterHilightDirective } from './BetterHilightDirective';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'forms', component: FormsComponent },
   { path: 'tforms', component: TformsComponent },
   { path: 'rforms', component: RformsComponent },
+  { path: 'blog', component: BlogComponent },
 ];
 
 @NgModule({
@@ -62,12 +64,14 @@ const appRoutes: Routes = [
     TformsComponent,
     FormsComponent,
     RformsComponent,
+    BlogComponent,
     // BetterHilightDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
     ReactiveFormsModule,
   ],
   providers: [],

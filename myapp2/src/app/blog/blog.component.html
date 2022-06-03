@@ -1,0 +1,74 @@
+<div
+  class="container"
+  style="
+    border: 3px solid black;
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  "
+>
+  <div class="row">
+    <div class="col">
+      <form #f="ngForm">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            placeholder="Title"
+            ngModel
+            required
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="content">Content</label>
+          <br />
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="Write your Blog"
+            ngModel
+            required
+          ></textarea>
+        </div>
+        <button
+          class="btn btn-primary"
+          [disabled]="!f.valid"
+          (click)="createPost(f.value)"
+        >
+          Send Post
+        </button>
+        <br />
+        <br />
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-sm btn-primary" (click)="onFetchPost()">
+              Fetch Post
+            </button>
+          </div>
+
+          <div class="col">
+            <button class="btn btn-danger btn-sm" (click)="onDeletePost()">
+              Delete Post
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row m-3">
+    <div class="col">
+      <p *ngIf="fetchedPosts.length < 1">No Posts Available !!</p>
+      <ul class="list-group" *ngIf="fetchedPosts.length >= 1">
+        <li class="list-group-item" *ngFor="let post of fetchedPosts">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
